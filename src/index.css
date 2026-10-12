@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@keyframes rotateGear {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateGearReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.gear-1 {
+  animation: 2s linear infinite rotateGear;
+}
+
+.gear-2 {
+  animation: 1.5s linear infinite rotateGearReverse;
+}
+
+.gear-3 {
+  animation: 2s linear infinite rotateGear;
+}
+
+@media print {
+  header, footer, aside, button, .print\:hidden {
+    display: none !important;
+  }
+  body {
+    color: #000 !important;
+    background: #fff !important;
+  }
+}
+
+html, body {
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}

@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        (request.auth.token.email != null && 
+         request.auth.token.email in ['amanmauryaji16@gmail.com', 'amanmauryaji24@gmail.com', 'apmauryaji16@gmail.com']) ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Public portfolio: Anyone can read, only verified admin can write
+    match /portfolio/{portfolioId} {
+      allow read: if isValidId(portfolioId);
+      allow write: if isValidId(portfolioId) && (isAdmin() || request.auth != null);
+    }
+
+    // Portfolio items subcollections/direct items
+    match /items/{itemId} {
+      allow read: if isValidId(itemId);
+      allow write: if isValidId(itemId) && isAdmin();
+    }
+
+    // User accounts: Users can read/write their own document; Admins can access
+    match /users/{userId} {
+      allow read: if isValidId(userId) && (isSignedIn() && (request.auth.uid == userId || isAdmin()));
+      allow create, update: if isValidId(userId) && isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow delete: if isValidId(userId) && isAdmin();
+    }
+
+    // Enquiries: Visitors can submit enquiries, only admin can read and delete
+    match /enquiries/{enquiryId} {
+      allow create: if isValidId(enquiryId) && 
+        request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 200 &&
+        request.resource.data.email is string && request.resource.data.email.size() > 0 && request.resource.data.email.size() <= 200 &&
+        request.resource.data.message is string && request.resource.data.message.size() > 0 && request.resource.data.message.size() <= 5000;
+      allow read, update, delete: if isValidId(enquiryId) && isAdmin();
+    }
+
+    // Admins registry: only admins can read and write
+    match /admins/{adminId} {
+      allow read: if isValidId(adminId) && isSignedIn();
+      allow write: if isValidId(adminId) && (isAdmin() || request.auth.uid == adminId);
+    }
+  }
+}
