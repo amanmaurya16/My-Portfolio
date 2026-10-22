@@ -5,14 +5,14 @@ import {
   Plus,
   Play,
   ExternalLink,
-  Layers,
-  Box,
-  Image as ImageIcon,
   Eye,
   X,
+  FileCode,
+  Download,
 } from 'lucide-react';
 import { GalleryItem, PortfolioData } from '../types';
 import { AddNewModelModal } from './AddNewModelModal';
+import { resolveAssetUrl } from '../services/localAssetManager';
 
 interface GalleryViewProps {
   data: PortfolioData;
@@ -20,6 +20,21 @@ interface GalleryViewProps {
   onUpdateData: (newData: PortfolioData) => void;
   onOpenVideoModal: (url: string, title?: string) => void;
 }
+
+const CATEGORY_LABELS: Record<string, string> = {
+  all: 'All Works & Drawings',
+  projects: 'Mechanical Projects',
+  certificates: 'Certificates & Credentials',
+  '3d-modeling': '3D Part Modeling',
+  drafting: 'Drafting & Blueprints',
+  '2d-sketch': '2D Sketches (AutoCAD)',
+  isometric: 'Isometric Projections',
+  'advanced-3d': 'Part Assembly Work',
+  'tool-die': 'Tool & Die Design',
+  'surface-design': 'Surface Modeling',
+  'sheet-metal': 'Sheet Metal Enclosures',
+  weldment: 'Weldment Structures',
+};
 
 export const GalleryView: React.FC<GalleryViewProps> = ({
   data,
@@ -58,28 +73,28 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 bg-white text-slate-900">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-6">
         <div>
-          <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
-            Portfolio Gallery
+          <span className="text-xs font-bold text-blue-600 uppercase tracking-widest font-mono">
+            CAD Design Repository
           </span>
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mt-1">
-            CAD Design &amp; 3D Models Gallery
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mt-1 tracking-tight">
+            Engineering Drawings &amp; 3D Models
           </h1>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
-            Explore 3D parts, assemblies, mechanism simulations, sheet metal enclosures, and detail engineering drawings.
+          <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+            Detailed 2D engineering sketches, SolidWorks parametric parts, manufacturing drafting with ASME Y14.5 GD&amp;T standards, pressure vessels, sheet metal flat patterns, and weldment cut lists.
           </p>
         </div>
 
         {isAdmin && (
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow transition self-start sm:self-auto cursor-pointer"
           >
             <Plus className="w-4 h-4" />
-            <span>Add New CAD Model</span>
+            <span>Add CAD Model</span>
           </button>
         )}
       </div>
@@ -91,13 +106,13 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition whitespace-nowrap cursor-pointer ${
               selectedCategory === cat
-                ? 'bg-blue-600 text-white shadow-sm'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                ? 'bg-slate-900 text-white font-bold shadow-sm'
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
             }`}
           >
-            {cat === 'all' ? 'All Models' : cat}
+            {CATEGORY_LABELS[cat] || cat}
           </button>
         ))}
       </div>
@@ -114,22 +129,20 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
                 setPreviewItem(item);
               }
             }}
-            className="bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between group"
+            className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-2xs hover:shadow-lg hover:border-blue-500 transition-all cursor-pointer flex flex-col justify-between group tech-card"
           >
             {/* Thumbnail / Image Container */}
-            <div className="relative aspect-4/3 bg-slate-950 overflow-hidden">
+            <div className="relative aspect-4/3 bg-slate-950 overflow-hidden border-b border-slate-200">
               <img
-                src={item.imageUrl}
+                src={resolveAssetUrl(item.imageUrl)}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
               />
 
-              <div className="absolute top-2.5 left-2.5 flex gap-1.5">
-                <span className="px-2 py-0.5 bg-blue-600/90 text-white text-[10px] font-bold rounded-md shadow-xs">
-                  {item.software}
-                </span>
-                <span className="px-2 py-0.5 bg-slate-900/80 text-slate-200 text-[10px] font-medium rounded-md backdrop-blur-xs">
-                  {item.category}
+              <div className="absolute top-2.5 left-2.5 flex flex-wrap gap-1">
+                <span className="px-2 py-0.5 bg-blue-600/90 text-white text-[10px] font-bold rounded shadow-xs font-mono">
+                  {CATEGORY_LABELS[item.category] || item.category}
                 </span>
               </div>
 
@@ -142,9 +155,9 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
               )}
 
               <div className="absolute bottom-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="p-1.5 bg-slate-900/80 text-white rounded-lg inline-flex items-center gap-1 text-[11px] font-semibold backdrop-blur-xs">
+                <span className="p-1.5 bg-slate-900 text-white rounded-md inline-flex items-center gap-1 text-[11px] font-semibold shadow">
                   <Eye className="w-3.5 h-3.5" />
-                  <span>Preview</span>
+                  <span>Inspect</span>
                 </span>
               </div>
             </div>
@@ -152,16 +165,16 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
             {/* Description Body */}
             <div className="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors line-clamp-1">
+                <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-1">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-1">
+                <p className="text-xs text-slate-600 line-clamp-2 mt-1">
                   {item.description}
                 </p>
               </div>
 
               {isAdmin && (
-                <div className="pt-2 flex justify-end">
+                <div className="pt-2 flex justify-end border-t border-slate-100 mt-2">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -186,34 +199,35 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-slate-900 border border-slate-800 rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl relative text-white"
+            className="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl relative text-white"
           >
             <button
               onClick={() => setPreviewItem(null)}
-              className="absolute top-4 right-4 z-20 p-2 text-slate-400 hover:text-white rounded-xl bg-black/40 hover:bg-black/80 transition-colors"
+              className="absolute top-4 right-4 z-20 p-2 text-slate-400 hover:text-white rounded-lg bg-black/50 hover:bg-black transition cursor-pointer"
+              aria-label="Close CAD inspector"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="relative aspect-video bg-black flex items-center justify-center">
+            <div className="relative aspect-video bg-slate-950 flex items-center justify-center border-b border-slate-800 p-4">
               <img
-                src={previewItem.imageUrl}
+                src={resolveAssetUrl(previewItem.imageUrl)}
                 alt={previewItem.title}
                 className="w-full h-full object-contain"
               />
             </div>
 
-            <div className="p-6 space-y-2">
+            <div className="p-6 space-y-3">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-1 bg-blue-600 text-white text-xs font-bold rounded-lg">
-                  {previewItem.software}
+                <span className="px-2.5 py-0.5 bg-blue-600 text-white text-xs font-bold rounded font-mono">
+                  {CATEGORY_LABELS[previewItem.category] || previewItem.category}
                 </span>
-                <span className="text-xs text-slate-400 font-semibold">
-                  {previewItem.category}
+                <span className="text-xs text-slate-400 font-mono">
+                  ID: {previewItem.id}
                 </span>
               </div>
               <h2 className="text-xl font-bold">{previewItem.title}</h2>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
                 {previewItem.description}
               </p>
             </div>
@@ -226,7 +240,7 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
         isOpen={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
         onAddModel={handleAddModel}
-        defaultCategory={selectedCategory === 'all' ? '3D CAD Model' : selectedCategory}
+        defaultCategory={selectedCategory === 'all' ? '3d-modeling' : selectedCategory}
       />
     </div>
   );

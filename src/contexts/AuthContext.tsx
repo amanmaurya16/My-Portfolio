@@ -1,78 +1,86 @@
-import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { VisitorUser } from '../types';
-import {
-  signInWithGoogle as fbSignInWithGoogle,
-  signOutVisitor as fbSignOutVisitor,
-  onAuthUserChanged,
-  getSavedVisitorUser,
-} from '../utils/firebase';
-import { isAuthorizedAdminEmail } from '../config/adminEmails';
 
 interface AuthContextType {
   user: VisitorUser | null;
   isAdmin: boolean;
   loading: boolean;
   error: string | null;
-  signInWithGoogle: () => Promise<boolean>;
+  toggleAdminMode: () => void;
   signOutUser: () => Promise<void>;
   clearError: () => void;
 }
 
+const DRAFT_MODE_STORAGE_KEY = 'aman_maurya_portfolio_draft_mode_active';
+
 const AuthContext = createContext<AuthContextType>({
   user: null,
   isAdmin: false,
-  loading: true,
+  loading: false,
   error: null,
-  signInWithGoogle: async () => false,
+  toggleAdminMode: () => {},
   signOutUser: async () => {},
   clearError: () => {},
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<VisitorUser | null>(() => getSavedVisitorUser());
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  // Check if draft mode was previously active or if the URL contains hash #admin
+  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const isHashAdmin = window.location.hash.toLowerCase().includes('admin');
+      const isStored = localStorage.getItem(DRAFT_MODE_STORAGE_KEY) === 'true';
+      return isHashAdmin || isStored;
+    }
+    return false;
+  });
+
+  const [user, setUser] = useState<VisitorUser | null>(() => {
+    if (isAdmin) {
+      return {
+        uid: 'owner-local',
+        displayName: 'Aman Maurya',
+        email: 'amanmauryaji16@gmail.com',
+        photoURL: null,
+        isAdmin: true,
+      };
+    }
+    return null;
+  });
 
   useEffect(() => {
-    const unsubscribe = onAuthUserChanged((authUser) => {
-      setUser(authUser);
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  const isAdmin = useMemo(() => {
-    return isAuthorizedAdminEmail(user?.email);
-  }, [user]);
-
-  const signInWithGoogle = async (): Promise<boolean> => {
-    setError(null);
-    const res = await fbSignInWithGoogle();
-    if (res.success && res.user) {
-      setUser(res.user);
-      return true;
+    if (isAdmin) {
+      setUser({
+        uid: 'owner-local',
+        displayName: 'Aman Maurya',
+        email: 'amanmauryaji16@gmail.com',
+        photoURL: null,
+        isAdmin: true,
+      });
+      localStorage.setItem(DRAFT_MODE_STORAGE_KEY, 'true');
     } else {
-      setError(res.error || 'Failed to sign in with Google');
-      return false;
+      setUser(null);
+      localStorage.removeItem(DRAFT_MODE_STORAGE_KEY);
     }
+  }, [isAdmin]);
+
+  const toggleAdminMode = () => {
+    setIsAdmin((prev) => !prev);
   };
 
-  const signOutUser = async (): Promise<void> => {
-    await fbSignOutVisitor();
-    setUser(null);
-    setError(null);
+  const signOutUser = async () => {
+    setIsAdmin(false);
   };
 
-  const clearError = () => setError(null);
+  const clearError = () => {};
 
   return (
     <AuthContext.Provider
       value={{
         user,
         isAdmin,
-        loading,
-        error,
-        signInWithGoogle,
+        loading: false,
+        error: null,
+        toggleAdminMode,
         signOutUser,
         clearError,
       }}

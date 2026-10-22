@@ -3,28 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aman Maurya — Mechanical Design Portfolio</title>
-    <meta name="description" content="Mechanical Design Engineering portfolio and CMS dashboard of Aman Maurya showcasing CAD models, engineering projects, expertise, and credentials." />
-    <meta property="og:title" content="Aman Maurya — Mechanical Design Portfolio" />
-    <meta property="og:description" content="Mechanical Design Engineering portfolio and CMS dashboard of Aman Maurya showcasing CAD models, engineering projects, expertise, and credentials." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <title>Aman Maurya | Mechanical Design Engineer Portfolio</title>
+    
+    <!-- Primary SEO Metadata -->
+    <meta name="description" content="Professional Mechanical Design Engineering Portfolio of Aman Maurya. Specializing in SolidWorks 3D Modeling, AutoCAD 2D Drafting, ASME Y14.5 GD&amp;T, and Machine Mechanisms (Geneva Wheel, Solar Tracking)." />
+    <meta name="keywords" content="Aman Maurya, Mechanical Design Engineer, CAD Portfolio, SolidWorks, AutoCAD, GD&amp;T, 2D Drafting, 3D Part Modeling, Geneva Wheel Mechanism, CIPET Jaipur, Mechanical Engineering" />
+    <meta name="author" content="Aman Maurya" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0b6efd" />
+    <link rel="canonical" href="https://amanmaurya16.github.io/My-Portfolio/" />
 
-    <!-- Font Awesome Icons for portfolio compatibility -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://amanmaurya16.github.io/My-Portfolio/" />
+    <meta property="og:title" content="Aman Maurya | Mechanical Design Engineer Portfolio" />
+    <meta property="og:description" content="Professional portfolio of Aman Maurya featuring SolidWorks 3D models, AutoCAD drafting, GD&amp;T standards, and kinematic machine mechanisms." />
+    <meta property="og:image" content="./assets/hero-engine.jpg" />
+    <meta property="og:site_name" content="Aman Maurya Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aman Maurya | Mechanical Design Engineer Portfolio" />
+    <meta name="twitter:description" content="Mechanical design engineering portfolio showcasing 2D drafting, 3D modeling, and mechanical mechanisms." />
+    <meta name="twitter:image" content="./assets/hero-engine.jpg" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://amanmaurya16.github.io/My-Portfolio/#person",
+            "name": "Aman Maurya",
+            "jobTitle": "Mechanical Design Engineer",
+            "description": "Mechanical Engineering student at CIPET IPT-Jaipur with expertise in CAD design, SolidWorks, AutoCAD, ASME Y14.5 GD&T, and machine mechanisms.",
+            "url": "https://amanmaurya16.github.io/My-Portfolio/",
+            "image": "https://amanmaurya16.github.io/My-Portfolio/assets/aman-profile.jpg",
+            "alumniOf": [
+              {
+                "@type": "EducationalOrganization",
+                "name": "Central Institute of Petrochemicals Engineering & Technology (CIPET), Jaipur",
+                "description": "B.Tech in Mechanical Engineering (3rd Year, CGPA 7.35)"
+              },
+              {
+                "@type": "EducationalOrganization",
+                "name": "Government Polytechnic College, Nawa",
+                "description": "Diploma in Mechanical Engineering (CGPA 9.34, Best Student Award)"
+              }
+            ],
+            "knowsAbout": [
+              "SolidWorks 3D Part & Assembly Modeling",
+              "AutoCAD 2D Drafting & Engineering Drawings",
+              "ASME Y14.5 Geometric Dimensioning & Tolerancing (GD&T)",
+              "Kinematic Machine Mechanism Design",
+              "Reverse Engineering & Tolerance Analysis",
+              "Railway Air Brake & FIBA Systems"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://amanmaurya16.github.io/My-Portfolio/#website",
+            "url": "https://amanmaurya16.github.io/My-Portfolio/",
+            "name": "Aman Maurya — Mechanical Design Portfolio",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://amanmaurya16.github.io/My-Portfolio/#person"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <script>
-      (function() {
-        try {
-          localStorage.removeItem('theme');
-          localStorage.removeItem('portfolio_theme');
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-          document.documentElement.setAttribute('data-theme', 'light');
-        } catch (e) {}
-      })();
-    </script>
-    <!-- SPA Redirect restoration for GitHub Pages -->
+    <!-- SPA Redirect restoration for GitHub Pages subpath routing -->
     <script>
       (function(l) {
         if (l.search[1] === '/') {

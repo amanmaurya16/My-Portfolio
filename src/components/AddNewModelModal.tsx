@@ -3,6 +3,7 @@ import { X, Upload, Plus, Image as ImageIcon } from 'lucide-react';
 import { GalleryItem } from '../types';
 import { uploadPortfolioImage } from '../utils/imageUpload';
 import { generateCadSvgPlaceholder } from '../initialData';
+import { validateAssetFile } from '../services/localAssetManager';
 
 interface AddNewModelModalProps {
   isOpen: boolean;
@@ -24,12 +25,19 @@ export const AddNewModelModal: React.FC<AddNewModelModalProps> = ({
   const [imageUrl, setImageUrl] = useState('');
   const [mediaType, setMediaType] = useState<'image' | 'video'>('image');
   const [uploading, setUploading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
   const handleImageFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    const validation = validateAssetFile(file, 'image');
+    if (!validation.isValid) {
+      setErrorMessage(validation.error || 'Invalid image file.');
+      return;
+    }
+    setErrorMessage(null);
     setUploading(true);
     try {
       const url = await uploadPortfolioImage(file);

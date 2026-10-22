@@ -1,8 +1,6 @@
 {
-  "name": "Remix Aman Maurya — Mechanical Design Portfolio",
-  "description": "Mechanical Design Engineering portfolio and CMS dashboard of Aman Maurya showcasing CAD models, engineering projects, expertise, and credentials.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "name": "Aman Maurya — Mechanical Design Portfolio",
+  "description": "Mechanical Design Engineering portfolio showcasing AutoCAD drafting, SolidWorks 3D modeling, mechanisms, and engineering credentials of Aman Maurya.",
+  "author": "Aman Maurya",
+  "role": "Mechanical Design Engineer"
 }

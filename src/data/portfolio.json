@@ -1,0 +1,761 @@
+{
+  "hero": {
+    "name": "Aman Maurya",
+    "title": "Mechanical Design Engineer",
+    "bio": "Mechanical Engineering student with hands-on experience in CAD design and machine mechanisms. Skilled in AutoCAD and SolidWorks, with practical exposure to drafting, 3D modeling, and mechanism development. Seeking a Mechanical Design Job to apply engineering fundamentals and contribute to real-world product development.",
+    "primaryBtnText": "Projects Work",
+    "secondaryBtnText": "Download Resume",
+    "heroImage": "assets/hero-engine.jpg",
+    "highlights": [
+      "⚡ SolidWorks (Part, Assembly & Weldments)",
+      "📐 ASME Y14.5 GD&T Standards",
+      "🎓 CIPET IPT Jaipur (B.Tech 3rd Yr)",
+      "🛠️ Precision Reverse Engineering"
+    ]
+  },
+  "profile": {
+    "title": "Mechanical Engineering Student",
+    "bio1": "Hi! I'm Aman Maurya, a passionate Mechanical Engineering student currently pursuing B.Tech (3rd Year) at CIPET IPT–Jaipur. I have a keen interest in CAD design, research and development, new product development and enjoy creating precise, efficient, and functional models that bring engineering concepts to life.",
+    "bio2": "I have hands-on experience with AutoCAD and SolidWorks, along with practical exposure to 2D drafting, 3D modelling, mechanism design and prototype development.",
+    "skills": [
+      "Engineering Drawing",
+      "CAD Fundamentals",
+      "AutoCAD & SolidWorks",
+      "Workshop Technology",
+      "GD&T Principles",
+      "Assembly & Mechanisms"
+    ],
+    "skillCategories": [
+      {
+        "category": "CAD Software & 3D Modeling",
+        "icon": "cube",
+        "description": "Parametric part design, multi-body assemblies, weldments, and feature-based modeling.",
+        "skills": [
+          "SolidWorks (Part, Assembly & Weldments)",
+          "AutoCAD (2D Drafting & 3D Modeling)",
+          "Parametric Modeling & Constraints",
+          "Interference & Motion Checking"
+        ]
+      },
+      {
+        "category": "Drafting & Engineering Standards",
+        "icon": "compass",
+        "description": "Standardized manufacturing production drawings and geometric dimensioning.",
+        "skills": [
+          "ASME Y14.5 GD&T Standards",
+          "Engineering Drawing & Orthographic Projections",
+          "Sectional Views & Detail Drawings",
+          "Bill of Materials (BOM) & Cut Lists"
+        ]
+      },
+      {
+        "category": "Mechanical Concepts & Mechanisms",
+        "icon": "cogs",
+        "description": "Kinematic mechanisms, power transmission, and functional machine elements.",
+        "skills": [
+          "Intermittent Motion Mechanisms (Geneva Drive)",
+          "Mechanical Linkages & Kinematics",
+          "Machine Component Design",
+          "Precision Reverse Engineering"
+        ]
+      },
+      {
+        "category": "Industrial Practice & Workshop",
+        "icon": "wrench",
+        "description": "Hands-on industrial maintenance, workshop technology, and manufacturing processes.",
+        "skills": [
+          "Workshop Technology & Fitting Operations",
+          "Air Brake Systems & FIBA (Indian Railways)",
+          "CNC Underfloor Wheel Lathe Operation",
+          "Preventive Maintenance & Inspection"
+        ]
+      }
+    ],
+    "profileImage": "assets/aman-profile.jpg"
+  },
+  "contact": {
+    "phone": "",
+    "phoneDisplay": "",
+    "email": "amanmauryaji16@gmail.com",
+    "location": "Jaipur, Rajasthan, India",
+    "linkedinUrl": "https://www.linkedin.com/in/aman-maurya-80700a301/",
+    "instagramUrl": "https://www.instagram.com/",
+    "formspreeUrl": "https://formspree.io/f/meaqjjan"
+  },
+  "settings": {
+    "siteTitle": "Aman Maurya | Mechanical Design Portfolio",
+    "brandSubtitle": "MECHANICAL DESIGN PORTFOLIO",
+    "adminEmail": "amanmauryaji16@gmail.com",
+    "resumeUrl": "",
+    "resumeFileName": "Aman_Maurya_Resume.pdf"
+  },
+  "expertise": [
+    {
+      "id": "exp-1",
+      "number": "01",
+      "title": "CAD Design",
+      "description": "2D drafting and 3D mechanical design using AutoCAD and SolidWorks, with focus on accurate engineering drawings and practical design solutions.",
+      "icon": "cube"
+    },
+    {
+      "id": "exp-2",
+      "number": "02",
+      "title": "3D Modelling",
+      "description": "Creation of detailed 3D parts, components and assemblies with proper dimensions, constraints and engineering design considerations.",
+      "icon": "cubes"
+    },
+    {
+      "id": "exp-3",
+      "number": "03",
+      "title": "Machine Design",
+      "description": "Design and development of machine components and mechanisms with focus on strength, functionality, reliability and manufacturability.",
+      "icon": "cogs"
+    },
+    {
+      "id": "exp-4",
+      "number": "04",
+      "title": "Product Design",
+      "description": "Practical product development from concept to 3D model, focusing on functionality, ease of manufacturing and real-world engineering requirements.",
+      "icon": "lightbulb"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "Geneva Wheel Mechanism",
+      "description": "Designed and developed a 6-slot Geneva Wheel Mechanism as a B.Tech 4th Semester team Minor project to convert continuous rotary motion into precise intermittent motion for industrial indexing applications.",
+      "badge": "⚡ Motion Control",
+      "badgeColor": "#0b6efd",
+      "category": "mechanisms",
+      "categoryLabel": "Mechanisms & Kinematics",
+      "objective": "Design, kinematic modeling, and precision indexing validation of a 6-slot intermittent motion mechanism for automated production indexing.",
+      "mechanicalConcept": "6-slot internal/external Geneva drive converting steady rotational input from a driving pin into intermittent angular stepping motion with zero pin clearance binding.",
+      "dateRange": "Jan 2026 - Apr 2026",
+      "role": "Team Lead",
+      "teamSize": "4 Members",
+      "tools": [
+        "AutoCAD",
+        "SolidWorks",
+        "MATLAB"
+      ],
+      "achievements": [
+        "🏆 Runner-Up at TechFest 2026",
+        "📐 Kinematic Analysis Completed"
+      ],
+      "outcomes": [
+        "Simulated angular velocity and acceleration profiles using MATLAB",
+        "Fabricated working prototype validating indexing dwell intervals",
+        "Achieved smooth pin entry and exit without kinematic shock"
+      ],
+      "imageUrl": "assets/geneva-wheel.jpg",
+      "isExtra": false
+    },
+    {
+      "id": "proj-2",
+      "title": "Solar Tracking System",
+      "description": "Designed and developed a Solar Tracking System as a Polytechnic Final Year Major Project to enhance solar panel efficiency through automatic sun tracking without external power using mechanical principles.",
+      "badge": "🌱 Green Tech",
+      "badgeColor": "#10b981",
+      "category": "automation",
+      "categoryLabel": "Renewable & Automation",
+      "objective": "Develop an autonomous sun tracking mechanical structure optimizing solar radiation incidence angle across diurnal sun trajectories.",
+      "mechanicalConcept": "Balanced mechanical linkages and pivot assemblies translating angular movement to follow azimuth and elevation paths for continuous photovoltaic exposure.",
+      "dateRange": "Jul 2025 - Dec 2025",
+      "role": "Project Lead",
+      "teamSize": "5 Members",
+      "tools": [
+        "AutoCAD",
+        "3D Printing",
+        "Mechanical Linkage"
+      ],
+      "achievements": [
+        "🏆 Best Project Award 2025",
+        "⚡ +35% Solar Efficiency"
+      ],
+      "outcomes": [
+        "Constructed operational scaled prototype using 3D printed brackets and mechanical pivot linkage",
+        "Measured up to 35% improvement in daylight energy collection compared to stationary horizontal mounts",
+        "Presented design defense and awarded Best Polytechnic Final Year Project"
+      ],
+      "imageUrl": "assets/solar-tracker.jpg",
+      "isExtra": false
+    },
+    {
+      "id": "proj-3",
+      "title": "Machine Component Design",
+      "description": "Designed a precision machine component with detailed 3D modelling and engineering drawing using SolidWorks and AutoCAD with complete dimensional accuracy and GD&T adherence.",
+      "badge": "⚙️ Precision",
+      "badgeColor": "#2563eb",
+      "category": "components",
+      "categoryLabel": "Precision Components",
+      "objective": "Create production-ready CAD geometry and ASME Y14.5 manufacturing drawings for high-tolerance machine elements.",
+      "mechanicalConcept": "Geometric Dimensioning & Tolerancing (GD&T) datum selection, form, orientation, and runout control for CNC machine production.",
+      "dateRange": "Sep 2026 - Nov 2026",
+      "role": "Individual Project",
+      "teamSize": "Self-Initiated",
+      "tools": [
+        "SolidWorks",
+        "AutoCAD",
+        "GD&T"
+      ],
+      "achievements": [
+        "📐 100% Design Accuracy",
+        "⚡ Manufacturing Ready"
+      ],
+      "outcomes": [
+        "Drafted complete orthographic, sectional, and isometric blueprints with machining allowances",
+        "Applied ASME Y14.5 positional tolerances and fit clearances for shaft-bore engagement",
+        "Verified parametric feature tree hierarchy for design intent maintenance"
+      ],
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%2360a5fa\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Machine Component Design</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Precision 3D Solid Part</text></svg>",
+      "isExtra": true
+    },
+    {
+      "id": "proj-4",
+      "title": "Assembly Design & Analysis",
+      "description": "Created a complete assembly model with motion analysis and interference checking using SolidWorks. Optimized the assembly for manufacturability and performance.",
+      "badge": "🔧 Assembly",
+      "badgeColor": "#f59e0b",
+      "category": "assemblies",
+      "categoryLabel": "Assemblies & Kinematics",
+      "objective": "Build multi-component mechanical assembly with kinematic constraints, motion simulation, and physical interference verification.",
+      "mechanicalConcept": "Multi-body mechanical mating (coincident, concentric, distance), degree of freedom constraint resolution, and dynamic motion path analysis.",
+      "dateRange": "Mar 2026 - Jun 2026",
+      "role": "Team Member",
+      "teamSize": "2 Members",
+      "tools": [
+        "SolidWorks",
+        "AutoCAD"
+      ],
+      "achievements": [
+        "📊 Motion Analysis Completed",
+        "✅ Zero Interference"
+      ],
+      "outcomes": [
+        "Conducted 3D collision detection and verified clearance throughout full stroke range",
+        "Auto-generated structured Bill of Materials (BOM) with standardized fastener callouts",
+        "Optimized component wall thicknesses and mating fillets for reduced assembly stress"
+      ],
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%23f59e0b\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%23fbbf24\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%23fbbf24\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Assembly Design & Analysis</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%23fbbf24\">SolidWorks Multi-body System</text></svg>",
+      "isExtra": true
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "yearRange": "Sep 2025 – Present",
+      "institution": "Central Institute of Petrochemicals Engineering & Technology (CIPET), Jaipur",
+      "branch": "Mechanical Engineering",
+      "cgpa": "7.35",
+      "status": "Currently in 3rd year (B.Tech)"
+    },
+    {
+      "id": "edu-2",
+      "yearRange": "Aug 2023 – Jun 2025",
+      "institution": "Government Polytechnic College, Nawa (Didwana - Kuchaman)",
+      "branch": "Mechanical Engineering (Diploma)",
+      "cgpa": "9.34",
+      "status": "Best Student Award"
+    },
+    {
+      "id": "edu-3",
+      "yearRange": "Jun 2022 – Apr 2023",
+      "institution": "Senior Secondary Examination (Rajasthan Board)",
+      "branch": "Science with Mathematics",
+      "percentage": "82.20%"
+    },
+    {
+      "id": "edu-4",
+      "yearRange": "Jun 2020 – Apr 2021",
+      "institution": "Secondary School Certificate (Rajasthan Board)",
+      "branch": "General Studies & Science",
+      "percentage": "93%"
+    }
+  ],
+  "internships": [
+    {
+      "id": "int-1",
+      "number": "01",
+      "role": "Mechanical Engineering Intern",
+      "company": "Indian Railways, Govt. of India",
+      "location": "Jaipur, Rajasthan, India",
+      "duration": "26 May 2026 – 10 July 2026",
+      "description": "During my internship at Indian Railways, I gained practical exposure to railway coach maintenance, brake systems, inspection and engineering practices.",
+      "points": [
+        "Studied the working principle and maintenance of the Air Brake System.",
+        "Gained practical knowledge of the FIBA System.",
+        "Observed the operation of the CNC Underfloor Wheel Lathe Machine.",
+        "Participated in coach inspection, preventive maintenance and brake testing.",
+        "Learned railway maintenance procedures, safety standards and engineering practices."
+      ],
+      "imageUrl": "assets/cert-railways.jpg"
+    },
+    {
+      "id": "int-2",
+      "number": "02",
+      "role": "Mechanical Engineering Intern",
+      "company": "Centre for Electronic Governance (CEG), Govt. of Rajasthan",
+      "location": "Jaipur, Rajasthan, India",
+      "duration": "10 July 2024 – 20 August 2024",
+      "description": "Successfully completed a Summer Internship in Industrial Design of Machine Components at CEG, Government of Rajasthan.",
+      "points": [
+        "Gained knowledge of machine component design.",
+        "Studied CAD fundamentals and engineering design principles.",
+        "Developed understanding of product development and mechanical design practices.",
+        "Gained practical exposure to industrial design methodologies."
+      ],
+      "imageUrl": "assets/cert-ceg.jpg"
+    },
+    {
+      "id": "int-3",
+      "number": "03",
+      "role": "MIIC Winter Internship Program",
+      "company": "Malaviya National Institute of Technology (MNIT), Jaipur",
+      "location": "Jaipur, Rajasthan, India",
+      "duration": "26 December 2023 – 22 January 2024",
+      "description": "Successfully completed the 24-day MIIC Winter Internship Program at MNIT Jaipur focusing on incubation and product innovation.",
+      "points": [
+        "Developed communication and soft skills.",
+        "Learned fundamentals of entrepreneurship.",
+        "Gained awareness of Intellectual Property Rights (IPR).",
+        "Learned about the contribution and working of incubation centres.",
+        "Gained practical exposure through interaction, mentoring and team-based learning."
+      ],
+      "imageUrl": "assets/cert-mnit.jpg"
+    }
+  ],
+  "awards": [
+    {
+      "id": "award-1",
+      "title": "AutoCAD Certification",
+      "description": "Successfully completed AutoCAD Mechanical 2D+3D Course from Digital CADD Solutions. Developed practical skills in 2D Drafting, 3D Modeling, Assembly Design, Parametric Drawing, and Engineering Drawing.",
+      "imageUrl": "assets/cert-autocad.jpg",
+      "isExtra": false
+    },
+    {
+      "id": "award-2",
+      "title": "SolidWorks Certificate",
+      "description": "Completed SolidWorks training with hands-on experience in 3D Modelling, Weldment Assemblies, Mechanical Drafting, Assembly Design, and Surface Modelling.",
+      "imageUrl": "assets/cert-solidworks.jpg",
+      "isExtra": false
+    },
+    {
+      "id": "award-3",
+      "title": "Best Student Award – Mechanical Engineering",
+      "description": "Honored with the Best Student of Mechanical Engineering award for maintaining outstanding academic performance (CGPA: 9.34), demonstrating technical excellence, and actively contributing to projects.",
+      "imageUrl": "assets/award-best-student.jpg",
+      "isExtra": false
+    },
+    {
+      "id": "award-4",
+      "title": "Runner-Up – Tech Vanguard, TechFest 2026 (PRISMA)",
+      "description": "Awarded Runner-Up in the Tech Vanguard competition during TechFest 2026 – PRISMA at CIPET Jaipur. Presented the Geneva Wheel Mechanism project, demonstrating mechanical design and kinematic analysis.",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%2310b981\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%2310b981\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2310b981\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Runner-Up Tech Vanguard</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2310b981\">PRISMA TechFest 2026</text></svg>",
+      "isExtra": true
+    },
+    {
+      "id": "award-5",
+      "title": "Winner – CAD Maestro, TechFest 2026 (PRISMA)",
+      "description": "Awarded Winner in the CAD Maestro competition during TechFest 2026 – PRISMA at CIPET Jaipur. Demonstrated proficiency in CAD modeling, engineering drawing, mechanical design, and technical problem-solving.",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%233b82f6\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Winner - CAD Maestro</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">CIPET TechFest 2026</text></svg>",
+      "isExtra": true
+    },
+    {
+      "id": "award-6",
+      "title": "Blood Donation Camp — Volunteer Service",
+      "description": "Awarded Certificate of Appreciation for voluntary service at the Blood Donation, Health & Eye Checkup Camp organized at Khatian Polytechnic College, Jaipur on 14 November 2025.",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%23ec4899\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%23ec4899\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%23ec4899\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Certificate of Appreciation</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%23ec4899\">Community Service</text></svg>",
+      "isExtra": true
+    }
+  ],
+  "galleryItems": [
+    {
+      "id": "gal-real-geneva",
+      "title": "Geneva Wheel Mechanism (Fabricated Prototype)",
+      "description": "Functional 6-slot intermittent motion mechanism prototype developed as B.Tech 4th semester project. Demonstrates smooth indexing motion.",
+      "category": "projects",
+      "categoryLabel": "MECHANISM PROJECT",
+      "badgeColor": "blue",
+      "imageUrl": "assets/geneva-wheel.jpg",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Project Details",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-real-solar",
+      "title": "Solar Tracking System (Operational Assembly)",
+      "description": "Polytechnic Final Year award-winning mechanical sun-tracking rig. Built with 3D printed pivot mounts and mechanical linkage.",
+      "category": "projects",
+      "categoryLabel": "RENEWABLE PROJECT",
+      "badgeColor": "emerald",
+      "imageUrl": "assets/solar-tracker.jpg",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Project Details",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-real-engine",
+      "title": "Two-Stroke Engine CAD Assembly",
+      "description": "Multi-component internal combustion engine 3D assembly model created with SolidWorks parametric features and concentric mating constraints.",
+      "category": "3d-modeling",
+      "categoryLabel": "3D CAD ASSEMBLY",
+      "badgeColor": "indigo",
+      "imageUrl": "assets/hero-engine.jpg",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View CAD Assembly",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-cert-cad",
+      "title": "AutoCAD Mechanical 2D & 3D Certification",
+      "description": "Certified in AutoCAD Mechanical 2D Drafting, 3D Modeling, Assembly Design, and Engineering Drawing from Digital CADD Solutions.",
+      "category": "certificates",
+      "categoryLabel": "VERIFIED CREDENTIAL",
+      "badgeColor": "blue",
+      "imageUrl": "assets/cert-autocad.jpg",
+      "cadLink": "",
+      "cadLinkText": "Certified CAD Skill",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-cert-sw",
+      "title": "SolidWorks 3D Modeling Certificate",
+      "description": "Certified in SolidWorks 3D Part Modeling, Weldments, Mechanical Assemblies, and Surface Modeling.",
+      "category": "certificates",
+      "categoryLabel": "VERIFIED CREDENTIAL",
+      "badgeColor": "blue",
+      "imageUrl": "assets/cert-solidworks.jpg",
+      "cadLink": "",
+      "cadLinkText": "Certified CAD Skill",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-cert-rail",
+      "title": "Indian Railways Industrial Training Certificate",
+      "description": "Official practical training certificate from Indian Railways on Coach Maintenance, Air Brake FIBA System, and Wheel Lathe Operations.",
+      "category": "certificates",
+      "categoryLabel": "INDUSTRIAL TRAINING",
+      "badgeColor": "amber",
+      "imageUrl": "assets/cert-railways.jpg",
+      "cadLink": "",
+      "cadLinkText": "Government Internship",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-cert-ceg",
+      "title": "CEG Machine Component Industrial Design Certificate",
+      "description": "Summer internship certificate in Machine Component Design and CAD Fundamentals from Centre for Electronic Governance, Govt of Rajasthan.",
+      "category": "certificates",
+      "categoryLabel": "GOVT INTERNSHIP",
+      "badgeColor": "amber",
+      "imageUrl": "assets/cert-ceg.jpg",
+      "cadLink": "",
+      "cadLinkText": "Government Internship",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-cert-mnit",
+      "title": "MNIT Jaipur MIIC Incubation Program Certificate",
+      "description": "Winter training certificate in Innovation, Product Incubation, and IPR Fundamentals from Malaviya National Institute of Technology.",
+      "category": "certificates",
+      "categoryLabel": "INNOVATION TRAINING",
+      "badgeColor": "emerald",
+      "imageUrl": "assets/cert-mnit.jpg",
+      "cadLink": "",
+      "cadLinkText": "Institute Training",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-award-student",
+      "title": "Best Student in Mechanical Engineering Award",
+      "description": "Academic excellence honor awarded for outstanding diploma performance (9.34 CGPA) at Government Polytechnic College, Nawa.",
+      "category": "certificates",
+      "categoryLabel": "ACADEMIC EXCELLENCE",
+      "badgeColor": "purple",
+      "imageUrl": "assets/award-best-student.jpg",
+      "cadLink": "",
+      "cadLinkText": "Academic Award",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-2d-1",
+      "title": "Sketch-1 (Flanged Hub)",
+      "description": "Precision 2D sketch with dimensions and geometric annotations.",
+      "category": "2d-sketch",
+      "categoryLabel": "2D SKETCH",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">2D Sketch - Flanged Hub</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">AutoCAD 2D Drafting</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View 2D Sketch",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-2d-2",
+      "title": "Sketch-2 (Spur Gear Profile)",
+      "description": "Involute teeth generation and pitch circle drafting.",
+      "category": "2d-sketch",
+      "categoryLabel": "2D SKETCH",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">2D Sketch - Spur Gear Profile</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Gear Involute Geometry</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View 2D Sketch",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-2d-3",
+      "title": "Sketch-3 (Lever Arm)",
+      "description": "Parametric 2D profile with fulcrum and tolerance dimensions.",
+      "category": "2d-sketch",
+      "categoryLabel": "2D SKETCH",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">2D Sketch - Lever Arm</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Parametric Drawing</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View 2D Sketch",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-3d-1",
+      "title": "Mechanical Part-1 (Shaft Coupling)",
+      "description": "Detailed 3D model created in SolidWorks with keyway slots.",
+      "category": "3d-modeling",
+      "categoryLabel": "3D PART MODELING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">3D Part - Shaft Coupling</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">SolidWorks 3D Feature</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View 3D Part Modeling",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-3d-2",
+      "title": "Mechanical Part-2 (Bearing Housing)",
+      "description": "Split bearing pedestal housing with lubrication port.",
+      "category": "3d-modeling",
+      "categoryLabel": "3D PART MODELING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">3D Part - Bearing Housing</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Cast Iron Pedestal</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View 3D Part Modeling",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-3d-3",
+      "title": "Mechanical Part-3 (Flanged Sleeve)",
+      "description": "Turned component with counterbored clearance holes.",
+      "category": "3d-modeling",
+      "categoryLabel": "3D PART MODELING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">3D Part - Flanged Sleeve</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Revolved Feature Model</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View 3D Part Modeling",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-draft-1",
+      "title": "Geneva Wheel Mechanism",
+      "description": "Full drafting with sectional views and BOM detail.",
+      "category": "drafting",
+      "categoryLabel": "DRAFTING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Drafting - Geneva Wheel Mechanism</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Complete Production Drawing</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Drafting",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-draft-2",
+      "title": "Gib and Cotter Joint",
+      "description": "Cotter joint with cotter taper and gib reinforcement detail.",
+      "category": "drafting",
+      "categoryLabel": "DRAFTING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Drafting - Gib and Cotter Joint</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Machine Joint Standard</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Drafting",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-draft-3",
+      "title": "Bush Bearing",
+      "description": "Brass bush assembly with oil groove and housing tolerances.",
+      "category": "drafting",
+      "categoryLabel": "DRAFTING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Drafting - Bush Bearing</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Bushing Tolerance Drawing</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Drafting",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-draft-4",
+      "title": "Screw Jack",
+      "description": "Square thread spindle, Tommy bar, and cup casting detail.",
+      "category": "drafting",
+      "categoryLabel": "DRAFTING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Drafting - Screw Jack</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Lifting Mechanism Blueprint</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Drafting",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-iso-1",
+      "title": "Isometric Drawing 1 (Crank Link)",
+      "description": "3D isometric projection with detailed geometric annotations.",
+      "category": "isometric",
+      "categoryLabel": "ISOMETRIC DRAWING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Isometric Drawing 1</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">30-deg Isometric View</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Isometric Drawing",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-iso-2",
+      "title": "Isometric Drawing 2 (V-Block Clamp)",
+      "description": "Clamping fixture for cylindrical stock inspection.",
+      "category": "isometric",
+      "categoryLabel": "ISOMETRIC DRAWING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Isometric Drawing 2</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">V-Block Fixture</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Isometric Drawing",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-adv-1",
+      "title": "Linford Two-Stroke Engine",
+      "description": "Detailed 3D engine model with complex mechanical assembly.",
+      "category": "advanced-3d",
+      "categoryLabel": "Part Assembly Work",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Linford Two-Stroke Engine</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Internal Combustion Assembly</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Advanced 3D Modeling",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-adv-2",
+      "title": "Vertical Steam Boiler Assembly",
+      "description": "Advanced cylindrical CAD model focusing on pressure vessel fittings.",
+      "category": "advanced-3d",
+      "categoryLabel": "Part Assembly Work",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Vertical Steam Boiler Assembly</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Pressure Vessel Assembly</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Advanced 3D Modeling",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-adv-3",
+      "title": "Horizontal Steam Boiler Assembly",
+      "description": "Shell construction, flue tubes, mountings, and pressure system.",
+      "category": "advanced-3d",
+      "categoryLabel": "Part Assembly Work",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Horizontal Steam Boiler Assembly</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Industrial Boiler CAD</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Advanced 3D Modeling",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-ass-1",
+      "title": "Assembly Drawing 1 (Plummer Block)",
+      "description": "Complete assembly drawing with parts list and BOM.",
+      "category": "assembly-drawing",
+      "categoryLabel": "ASSEMBLY DRAWING",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Assembly Drawing 1</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">BOM & Bill of Materials</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Assembly Drawing",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-tool-1",
+      "title": "Tool & Die Design 1 (Blanking Die)",
+      "description": "Precision tool and die design for sheet metal blanking operations.",
+      "category": "tool-die",
+      "categoryLabel": "TOOL & DIE DESIGN",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Tool & Die - Blanking Die</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Punch & Die Clearance</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Tool & Die Design",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-surf-1",
+      "title": "Surface Modeling 1 (Ergonomic Handle)",
+      "description": "Complex lofted and swept curvature with class-A continuity.",
+      "category": "surface-design",
+      "categoryLabel": "SURFACE DESIGN",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Surface Modeling 1</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Complex Lofted Surface</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Surface Design",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-sheet-1",
+      "title": "Sheet Metal Design 1 (Electronic Enclosure)",
+      "description": "Precision sheet metal casing with bend allowance and flat pattern.",
+      "category": "sheet-metal",
+      "categoryLabel": "SHEET METAL DESIGN",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Sheet Metal Design 1</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Flat Pattern & Bends</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Sheet Metal Design",
+      "mediaUrl": "",
+      "mediaType": "image"
+    },
+    {
+      "id": "gal-weld-1",
+      "title": "Weldment Design 1 (Structural Base Frame)",
+      "description": "Tubular structural frame with welded corner gussets and cut list.",
+      "category": "weldment",
+      "categoryLabel": "WELDMENT DESIGN",
+      "badgeColor": "blue",
+      "imageUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\" fill=\"none\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><rect x=\"20\" y=\"20\" width=\"560\" height=\"360\" rx=\"8\" stroke=\"%23334155\" stroke-width=\"2\" stroke-dasharray=\"6 6\"/><circle cx=\"300\" cy=\"180\" r=\"75\" stroke=\"%233b82f6\" stroke-width=\"3\" fill=\"%231e293b\"/><path d=\"M225 180h150M300 105v150M247 127l106 106M247 233l106-106\" stroke=\"%233b82f6\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><circle cx=\"300\" cy=\"180\" r=\"30\" stroke=\"%2338bdf8\" stroke-width=\"2\" fill=\"%230f172a\"/><text x=\"300\" y=\"310\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"%23f8fafc\">Weldment Design 1</text><text x=\"300\" y=\"335\" text-anchor=\"middle\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"%2338bdf8\">Weld Bead & Structural Tubing</text></svg>",
+      "cadLink": "https://grabcad.com/library",
+      "cadLinkText": "View Weldment Design",
+      "mediaUrl": "",
+      "mediaType": "image"
+    }
+  ],
+  "homeSections": {
+    "expertiseBadge": "CORE EXPERTISE",
+    "expertiseTitle": "Mechanical Design & Engineering",
+    "expertiseSubtitle": "Precision drafting, 3D parametric modeling, and manufacturing standards",
+    "projectsBadge": "PROJECT SHOWCASE",
+    "projectsTitle": "ENGINEERING PROJECTS",
+    "ctaBadge": "HAVE A DESIGN CHALLENGE IN MIND?",
+    "ctaTitle": "Let's turn your idea into a practical engineering solution.",
+    "ctaSubtitle": "Available for mechanical design projects, CAD drafting, and engineering roles.",
+    "ctaBtnText": "Send Your Enquiry"
+  }
+}

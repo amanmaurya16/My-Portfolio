@@ -1,7 +1,11 @@
 import { PortfolioData, EnquiryItem } from '../types';
-import { initialPortfolioData } from '../initialData';
+import {
+  getCanonicalPortfolioData,
+  sanitizePortfolioData as sanitizeData,
+  PORTFOLIO_DRAFT_KEY,
+} from '../services/portfolioRepository';
 
-export const PORTFOLIO_STORAGE_KEY = 'aman_maurya_portfolio_cms_v1';
+export const PORTFOLIO_STORAGE_KEY = PORTFOLIO_DRAFT_KEY;
 export const ENQUIRIES_STORAGE_KEY = 'aman_maurya_portfolio_enquiries_v1';
 
 export function isTemporaryBlobUrl(url?: string | null): boolean {
@@ -11,86 +15,28 @@ export function isTemporaryBlobUrl(url?: string | null): boolean {
 }
 
 export function sanitizePortfolioData(data?: Partial<PortfolioData> | null): PortfolioData {
-  const merged: PortfolioData = {
-    ...initialPortfolioData,
-    ...(data || {}),
-    hero: { ...initialPortfolioData.hero, ...(data?.hero || {}) },
-    profile: { ...initialPortfolioData.profile, ...(data?.profile || {}) },
-    contact: { ...initialPortfolioData.contact, ...(data?.contact || {}) },
-    settings: { ...initialPortfolioData.settings, ...(data?.settings || {}) },
-    homeSections: { ...initialPortfolioData.homeSections, ...(data?.homeSections || {}) },
-    expertise: data?.expertise || initialPortfolioData.expertise,
-    projects: data?.projects || initialPortfolioData.projects,
-    education: data?.education || initialPortfolioData.education,
-    internships: data?.internships || initialPortfolioData.internships,
-    awards: data?.awards || initialPortfolioData.awards,
-    galleryItems: data?.galleryItems || initialPortfolioData.galleryItems,
-  };
-
-  // Ensure real CAD assets are used instead of temporary blob URLs or initial SVG placeholders
-  if (!merged.hero.heroImage || isTemporaryBlobUrl(merged.hero.heroImage) || merged.hero.heroImage.startsWith('data:image/svg+xml')) {
-    merged.hero.heroImage = '/assets/hero-engine.jpg';
-  }
-  if (!merged.profile.profileImage || isTemporaryBlobUrl(merged.profile.profileImage) || merged.profile.profileImage.startsWith('data:image/svg+xml')) {
-    merged.profile.profileImage = '/assets/aman-profile.jpg';
-  }
-
-  merged.projects = merged.projects.map((proj) => {
-    const copy = { ...proj };
-    if (!copy.imageUrl || isTemporaryBlobUrl(copy.imageUrl) || copy.imageUrl.startsWith('data:image/svg+xml')) {
-      if (copy.id === 'proj-1') copy.imageUrl = '/assets/geneva-wheel.jpg';
-      else if (copy.id === 'proj-2') copy.imageUrl = '/assets/solar-tracker.jpg';
-      else {
-        const orig = initialPortfolioData.projects.find((p) => p.id === proj.id);
-        copy.imageUrl = orig?.imageUrl || '/assets/hero-engine.jpg';
-      }
-    }
-    if (isTemporaryBlobUrl(copy.videoUrl)) {
-      copy.videoUrl = undefined;
-    }
-    return copy;
-  });
-
-  merged.internships = merged.internships.map((item) => {
-    const copy = { ...item };
-    if (!copy.imageUrl || isTemporaryBlobUrl(copy.imageUrl) || copy.imageUrl.startsWith('data:image/svg+xml')) {
-      if (copy.id === 'int-1') copy.imageUrl = '/assets/cert-railways.jpg';
-      else if (copy.id === 'int-2') copy.imageUrl = '/assets/cert-ceg.jpg';
-      else if (copy.id === 'int-3') copy.imageUrl = '/assets/cert-mnit.jpg';
-      else copy.imageUrl = '/assets/cert-railways.jpg';
-    }
-    return copy;
-  });
-
-  merged.awards = merged.awards.map((item) => {
-    const copy = { ...item };
-    if (!copy.imageUrl || isTemporaryBlobUrl(copy.imageUrl) || copy.imageUrl.startsWith('data:image/svg+xml')) {
-      if (copy.id === 'award-1') copy.imageUrl = '/assets/cert-autocad.jpg';
-      else if (copy.id === 'award-2') copy.imageUrl = '/assets/cert-solidworks.jpg';
-      else if (copy.id === 'award-3') copy.imageUrl = '/assets/award-best-student.jpg';
-    }
-    return copy;
-  });
-
-  return merged;
+  return sanitizeData(data || {});
 }
 
 export function loadPortfolioData(): PortfolioData {
+  if (typeof window === 'undefined') return getCanonicalPortfolioData();
   try {
     const raw = localStorage.getItem(PORTFOLIO_STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      return sanitizePortfolioData(parsed);
+      return sanitizeData(parsed);
     }
   } catch (err) {
     console.error('Error loading portfolio data from localStorage:', err);
   }
-  return initialPortfolioData;
+  return getCanonicalPortfolioData();
 }
 
 export function savePortfolioData(data: PortfolioData): boolean {
+  if (typeof window === 'undefined') return false;
   try {
-    const sanitized = sanitizePortfolioData(data);
+    const sanitized = sanitizeData(data);
+    sanitized.updatedAt = new Date().toISOString();
     localStorage.setItem(PORTFOLIO_STORAGE_KEY, JSON.stringify(sanitized));
     return true;
   } catch (err) {
@@ -100,6 +46,7 @@ export function savePortfolioData(data: PortfolioData): boolean {
 }
 
 export function loadStoredEnquiries(): EnquiryItem[] {
+  if (typeof window === 'undefined') return [];
   try {
     const raw = localStorage.getItem(ENQUIRIES_STORAGE_KEY);
     return raw ? JSON.parse(raw) : [];
@@ -109,11 +56,24 @@ export function loadStoredEnquiries(): EnquiryItem[] {
 }
 
 export function saveStoredEnquiries(enquiries: EnquiryItem[]): void {
+  if (typeof window === 'undefined') return;
   try {
     localStorage.setItem(ENQUIRIES_STORAGE_KEY, JSON.stringify(enquiries));
   } catch (err) {
     console.error('Error saving enquiries to localStorage:', err);
   }
+}
+
+export function addStoredEnquiry(enquiry: Omit<EnquiryItem, 'id' | 'createdAt'>): EnquiryItem[] {
+  const current = loadStoredEnquiries();
+  const newItem: EnquiryItem = {
+    ...enquiry,
+    id: `enq-${Date.now()}`,
+    createdAt: new Date().toISOString(),
+  };
+  const updated = [newItem, ...current];
+  saveStoredEnquiries(updated);
+  return updated;
 }
 
 export function deleteStoredEnquiry(id: string): EnquiryItem[] {

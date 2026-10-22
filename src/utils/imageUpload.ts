@@ -1,10 +1,14 @@
-import { uploadImageToCloudinary, getCloudinaryConfig } from './cloudinary';
+/**
+ * Local Image and Document Preview Utilities
+ * Compresses uploaded images into optimized data URLs for in-browser draft previews.
+ * For permanent inclusion, images should be placed in public/assets/ and referenced by path.
+ */
 
 export async function compressImageToDataUrl(
   file: File,
   maxWidth = 1200,
   maxHeight = 900,
-  quality = 0.82
+  quality = 0.85
 ): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -45,46 +49,10 @@ export async function compressImageToDataUrl(
 }
 
 export async function uploadPortfolioImage(file: File): Promise<string> {
-  const { cloudName, uploadPreset } = getCloudinaryConfig();
-
-  // If Cloudinary is configured, use it for persistent CDN hosting
-  if (cloudName && uploadPreset) {
-    try {
-      return await uploadImageToCloudinary(file);
-    } catch (err) {
-      console.warn('Cloudinary upload error, falling back to optimized compression:', err);
-    }
-  }
-
-  // Fallback: Compress image to web-optimized data URL so it never relies on broken blob URLs
-  return await compressImageToDataUrl(file, 1000, 750, 0.78);
+  return compressImageToDataUrl(file, 1200, 900, 0.85);
 }
 
 export async function uploadResumeFile(file: File): Promise<string> {
-  const { cloudName, uploadPreset } = getCloudinaryConfig();
-
-  if (cloudName && uploadPreset) {
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('upload_preset', uploadPreset);
-
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        if (data?.secure_url) {
-          return data.secure_url;
-        }
-      }
-    } catch (err) {
-      console.warn('Cloudinary resume upload error, falling back to data URL:', err);
-    }
-  }
-
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (e) => resolve(e.target?.result as string);

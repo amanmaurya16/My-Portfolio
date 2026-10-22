@@ -2,21 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { PortfolioData, EnquiryItem } from './types';
 import {
-  loadPortfolioData,
-  savePortfolioData,
+  loadCurrentPortfolioData,
+  saveDraftPortfolioData,
+  resetToCanonicalPortfolioData,
+  exportPortfolioBackup,
+} from './services/portfolioRepository';
+import {
   loadStoredEnquiries,
   deleteStoredEnquiry,
 } from './utils/storage';
-import {
-  loadPortfolioFromFirestore,
-  savePortfolioToFirestore,
-  subscribeToPortfolio,
-} from './utils/firebase';
-import { initialPortfolioData } from './initialData';
 
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
+import { ProjectsView } from './components/ProjectsView';
 import { AboutView } from './components/AboutView';
 import { GalleryView } from './components/GalleryView';
 import { ResumeView } from './components/ResumeView';
@@ -26,20 +25,18 @@ import { AdminDashboard } from './components/AdminDashboard';
 import { SignInModal } from './components/SignInModal';
 import { ContactModal } from './components/ContactModal';
 import { EnquiryModal } from './components/EnquiryModal';
-import { CloudinaryModal } from './components/CloudinaryModal';
 import { VideoModal } from './components/VideoModal';
 import { QuickEditModal } from './components/QuickEditModal';
 
 const PortfolioAppContent: React.FC = () => {
-  const { user, isAdmin } = useAuth();
-  const [data, setData] = useState<PortfolioData>(() => loadPortfolioData());
-  const [isFirestoreSyncActive, setIsFirestoreSyncActive] = useState<boolean>(false);
+  const { user, isAdmin, toggleAdminMode, signOutUser } = useAuth();
+  const [{ data, isDraft }, setPortfolioState] = useState(() => loadCurrentPortfolioData());
 
   // Active hash-based tab navigation
   const [activeTab, setActiveTab] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-      if (['home', 'about', 'gallery', 'resume'].includes(hash)) {
+      if (['home', 'projects', 'about', 'gallery', 'resume'].includes(hash)) {
         return hash;
       }
     }
@@ -51,7 +48,6 @@ const PortfolioAppContent: React.FC = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
-  const [isCloudinaryOpen, setIsCloudinaryOpen] = useState(false);
   const [videoModal, setVideoModal] = useState<{ isOpen: boolean; url: string; title?: string }>({
     isOpen: false,
     url: '',
@@ -81,8 +77,10 @@ const PortfolioAppContent: React.FC = () => {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-      if (['home', 'about', 'gallery', 'resume'].includes(hash)) {
+      if (['home', 'projects', 'about', 'gallery', 'resume'].includes(hash)) {
         setActiveTab(hash);
+      } else if (hash === 'admin' || hash === 'cms') {
+        setIsDashboardOpen(true);
       }
     };
     window.addEventListener('hashchange', handleHash);
@@ -96,51 +94,10 @@ const PortfolioAppContent: React.FC = () => {
     }
   };
 
-  // Hydrate from Firestore on mount & live subscription
-  useEffect(() => {
-    let isMounted = true;
-    loadPortfolioFromFirestore()
-      .then((remoteData) => {
-        if (isMounted && remoteData) {
-          setData(remoteData);
-          savePortfolioData(remoteData);
-          setIsFirestoreSyncActive(true);
-        }
-      })
-      .catch((err) => {
-        console.warn('Initial Firestore fetch notice:', err);
-        if (isMounted) setIsFirestoreSyncActive(false);
-      });
-
-    const unsubscribe = subscribeToPortfolio(
-      (updated) => {
-        if (isMounted && updated) {
-          setData(updated);
-          savePortfolioData(updated);
-          setIsFirestoreSyncActive(true);
-        }
-      },
-      () => {
-        if (isMounted) setIsFirestoreSyncActive(false);
-      }
-    );
-
-    return () => {
-      isMounted = false;
-      unsubscribe();
-    };
-  }, []);
-
-  // Update Data handler (saves to LocalStorage and Firestore)
-  const handleUpdateData = async (newData: PortfolioData) => {
-    setData(newData);
-    savePortfolioData(newData);
-    try {
-      await savePortfolioToFirestore(newData);
-      setIsFirestoreSyncActive(true);
-    } catch (err) {
-      console.warn('Firestore update error:', err);
-    }
+  // Update Data handler (saves to local browser draft)
+  const handleUpdateData = (newData: PortfolioData) => {
+    saveDraftPortfolioData(newData);
+    setPortfolioState({ data: newData, isDraft: true });
   };
 
   const handleDeleteEnquiry = (id: string) => {
@@ -149,20 +106,14 @@ const PortfolioAppContent: React.FC = () => {
   };
 
   const handleResetData = () => {
-    if (window.confirm('Reset all portfolio data to default original engineering records?')) {
-      handleUpdateData(initialPortfolioData);
+    if (window.confirm('Reset all portfolio changes to canonical repository data?')) {
+      const canonical = resetToCanonicalPortfolioData();
+      setPortfolioState({ data: canonical, isDraft: false });
     }
   };
 
   const handleExportBackup = () => {
-    const jsonStr = JSON.stringify(data, null, 2);
-    const blob = new Blob([jsonStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Aman_Maurya_Portfolio_Backup_${new Date().toISOString().split('T')[0]}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
+    exportPortfolioBackup(data);
   };
 
   const handleOpenQuickEdit = (
@@ -222,6 +173,20 @@ const PortfolioAppContent: React.FC = () => {
           />
         )}
 
+        {activeTab === 'projects' && (
+          <ProjectsView
+            data={data}
+            isAdmin={isAdmin}
+            isQuickEdit={isQuickEdit}
+            onOpenQuickEdit={handleOpenQuickEdit}
+            onUpdateData={handleUpdateData}
+            onNavigateTab={handleNavigateTab}
+            onOpenContact={() => setIsContactOpen(true)}
+            onOpenEnquiry={() => setIsEnquiryOpen(true)}
+            onOpenVideoModal={(url, title) => setVideoModal({ isOpen: true, url, title })}
+          />
+        )}
+
         {activeTab === 'about' && (
           <AboutView
             data={data}
@@ -265,14 +230,15 @@ const PortfolioAppContent: React.FC = () => {
         onOpenDashboard={() => setIsDashboardOpen(true)}
       />
 
-      {/* Floating Admin Toolbar if Admin Authenticated */}
+      {/* Floating Admin Toolbar if Admin / Draft Mode Activated */}
       {isAdmin && (
         <AdminBar
           onOpenDashboard={() => setIsDashboardOpen(true)}
-          onOpenCloudinary={() => setIsCloudinaryOpen(true)}
           isQuickEditActive={isQuickEdit}
           onToggleQuickEdit={() => setIsQuickEdit(!isQuickEdit)}
-          isFirestoreSyncActive={isFirestoreSyncActive}
+          onExportBackup={handleExportBackup}
+          onResetData={handleResetData}
+          onExitDraftMode={() => signOutUser()}
         />
       )}
 
@@ -293,13 +259,6 @@ const PortfolioAppContent: React.FC = () => {
         isOpen={isEnquiryOpen}
         onClose={() => setIsEnquiryOpen(false)}
         contact={data.contact}
-      />
-
-      <CloudinaryModal
-        isOpen={isCloudinaryOpen}
-        onClose={() => setIsCloudinaryOpen(false)}
-        data={data}
-        onUpdateData={handleUpdateData}
       />
 
       <VideoModal
@@ -328,7 +287,6 @@ const PortfolioAppContent: React.FC = () => {
         onDeleteEnquiry={handleDeleteEnquiry}
         onResetData={handleResetData}
         onExportBackup={handleExportBackup}
-        isFirestoreSyncActive={isFirestoreSyncActive}
       />
     </div>
   );

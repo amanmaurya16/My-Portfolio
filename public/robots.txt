@@ -1,0 +1,7 @@
+# robots.txt for Aman Maurya Mechanical Design Engineering Portfolio
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+# Sitemap location
+Sitemap: https://amanmaurya16.github.io/My-Portfolio/sitemap.xml

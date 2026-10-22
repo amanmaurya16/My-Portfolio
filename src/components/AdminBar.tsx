@@ -1,71 +1,98 @@
 import React from 'react';
-import { Settings, Edit3, Image, LogOut, CheckCircle2, Shield } from 'lucide-react';
+import {
+  Sliders,
+  Edit2,
+  Download,
+  RotateCcw,
+  LogOut,
+  FileCode,
+} from 'lucide-react';
 
 interface AdminBarProps {
   onOpenDashboard: () => void;
-  onOpenCloudinary: () => void;
   isQuickEditActive: boolean;
   onToggleQuickEdit: () => void;
-  isFirestoreSyncActive?: boolean;
+  onExportBackup?: () => void;
+  onResetData?: () => void;
+  onExitDraftMode?: () => void;
 }
 
 export const AdminBar: React.FC<AdminBarProps> = ({
   onOpenDashboard,
-  onOpenCloudinary,
   isQuickEditActive,
   onToggleQuickEdit,
-  isFirestoreSyncActive = false,
+  onExportBackup,
+  onResetData,
+  onExitDraftMode,
 }) => {
   return (
-    <aside
-      aria-label="Admin quick toolbar"
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-slate-900/95 text-white backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-700/80 shadow-2xl flex items-center gap-3 sm:gap-4 max-w-[95vw] overflow-x-auto"
-      id="admin-floating-bar"
-    >
-      <div className="flex items-center gap-2 border-r border-slate-700 pr-3 shrink-0">
-        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-        <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase hidden sm:inline">
-          Admin Active
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 bg-slate-900/95 text-white border border-slate-700/80 rounded-2xl shadow-2xl px-4 py-2.5 backdrop-blur-md flex items-center gap-3 animate-fadeIn max-w-[95vw] overflow-x-auto scrollbar-none">
+      {/* Draft Mode Pill */}
+      <div className="flex items-center gap-2 pr-2 border-r border-slate-700 shrink-0">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span className="text-[11px] font-bold text-slate-300 font-mono uppercase tracking-wider">
+          Draft Studio
         </span>
       </div>
 
+      {/* Main CMS button */}
       <button
         onClick={onOpenDashboard}
-        className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow transition-colors shrink-0"
-        id="open-admin-dashboard-btn"
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold transition shadow shrink-0 cursor-pointer"
+        title="Open Full Content Management System"
       >
-        <Settings className="w-3.5 h-3.5" />
-        <span>CMS Dashboard</span>
+        <Sliders className="w-3.5 h-3.5" />
+        <span>Content Manager</span>
       </button>
 
+      {/* Quick edit inline toggle */}
       <button
         onClick={onToggleQuickEdit}
-        className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl transition-colors shrink-0 ${
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 cursor-pointer ${
           isQuickEditActive
-            ? 'bg-amber-500 text-slate-950 font-black'
+            ? 'bg-amber-500 text-slate-950 font-black shadow'
             : 'bg-slate-800 hover:bg-slate-700 text-slate-200'
         }`}
-        id="toggle-inline-edit-btn"
+        title="Toggle inline edit icons directly on website sections"
       >
-        <Edit3 className="w-3.5 h-3.5" />
-        <span>Quick Edit: {isQuickEditActive ? 'ON' : 'OFF'}</span>
+        <Edit2 className="w-3.5 h-3.5" />
+        <span>{isQuickEditActive ? 'Quick Edit: ON' : 'Quick Edit'}</span>
       </button>
 
-      <button
-        onClick={onOpenCloudinary}
-        className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl transition-colors shrink-0"
-        id="admin-bar-cloudinary-btn"
-      >
-        <Image className="w-3.5 h-3.5" />
-        <span>Cloud Media</span>
-      </button>
-
-      {isFirestoreSyncActive && (
-        <div className="hidden lg:flex items-center gap-1 text-[11px] text-emerald-400 font-semibold pl-1">
-          <CheckCircle2 className="w-3.5 h-3.5" />
-          <span>Cloud Sync Live</span>
-        </div>
+      {/* Export JSON backup button */}
+      {onExportBackup && (
+        <button
+          onClick={onExportBackup}
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition shrink-0 cursor-pointer"
+          title="Download updated portfolio.json to commit to git"
+        >
+          <Download className="w-3.5 h-3.5 text-blue-400" />
+          <span className="hidden sm:inline">Export JSON</span>
+        </button>
       )}
-    </aside>
+
+      {/* Reset to Canonical button */}
+      {onResetData && (
+        <button
+          onClick={onResetData}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-800/80 hover:bg-rose-950 text-slate-400 hover:text-rose-300 rounded-lg text-xs font-medium transition shrink-0 cursor-pointer"
+          title="Discard local draft changes and revert to canonical portfolio data"
+        >
+          <RotateCcw className="w-3.5 h-3.5" />
+          <span className="hidden md:inline">Reset</span>
+        </button>
+      )}
+
+      {/* Exit Draft Mode button */}
+      {onExitDraftMode && (
+        <button
+          onClick={onExitDraftMode}
+          className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition shrink-0 cursor-pointer"
+          title="Exit Draft Mode"
+        >
+          <LogOut className="w-3.5 h-3.5" />
+        </button>
+      )}
+    </div>
   );
 };
