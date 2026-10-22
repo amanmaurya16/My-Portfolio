@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ChevronDown,
   CheckCircle2,
@@ -43,6 +43,17 @@ export const AboutView: React.FC<AboutViewProps> = ({
   const [showAllHonors, setShowAllHonors] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [zoomCertificate, setZoomCertificate] = useState<{ url: string; title: string } | null>(null);
+
+  useEffect(() => {
+    if (!zoomCertificate) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setZoomCertificate(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [zoomCertificate]);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);

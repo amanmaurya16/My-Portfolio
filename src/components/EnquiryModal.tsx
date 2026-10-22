@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, AlertCircle, Mail } from 'lucide-react';
 import { ContactInfo } from '../types';
 import { addStoredEnquiry } from '../utils/storage';
@@ -18,6 +18,17 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -78,8 +89,17 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
   )}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="enquiry-modal-title"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto"
+      >
         <button
           onClick={onClose}
           className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
@@ -92,7 +112,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
           <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider uppercase font-mono">
             Direct Engineering Enquiry
           </span>
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+          <h3 id="enquiry-modal-title" className="text-2xl font-bold text-slate-900 dark:text-white">
             Discuss a CAD or Design Project
           </h3>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
@@ -147,10 +167,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <label htmlFor="enquiry-name" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                   Full Name *
                 </label>
                 <input
+                  id="enquiry-name"
                   type="text"
                   required
                   value={name}
@@ -161,10 +182,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <label htmlFor="enquiry-email" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                   Email Address *
                 </label>
                 <input
+                  id="enquiry-email"
                   type="email"
                   required
                   value={email}
@@ -177,10 +199,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <label htmlFor="enquiry-phone" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                   Contact Phone (Optional)
                 </label>
                 <input
+                  id="enquiry-phone"
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
@@ -190,10 +213,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <label htmlFor="enquiry-domain" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                   Project Domain / Focus
                 </label>
                 <select
+                  id="enquiry-domain"
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 dark:text-slate-100"
@@ -210,10 +234,11 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, con
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="enquiry-message" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                 Project Requirements &amp; Scope *
               </label>
               <textarea
+                id="enquiry-message"
                 required
                 rows={4}
                 value={message}

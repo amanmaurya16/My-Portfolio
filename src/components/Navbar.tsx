@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-1.5" aria-label="Main Navigation">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -139,10 +139,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={onOpenEnquiry}
-            className="px-3 py-1.5 text-xs font-bold bg-blue-600 text-white rounded-lg shadow-sm"
+            className="hidden sm:inline-flex px-3 py-1.5 text-xs font-bold bg-blue-600 text-white rounded-lg shadow-sm cursor-pointer"
           >
             Enquiry
           </button>
@@ -159,7 +159,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-5 space-y-3 animate-fadeIn">
+        <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-5 space-y-3 animate-fadeIn">
           <nav className="flex flex-col space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;

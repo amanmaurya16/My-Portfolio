@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import { ContactInfo } from '../types';
 
@@ -9,15 +9,35 @@ interface ContactModalProps {
 }
 
 export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, contact }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-6">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-fadeIn"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto space-y-6"
+      >
         <button
           onClick={onClose}
           className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
-          aria-label="Close"
+          aria-label="Close dialog"
         >
           <X className="w-5 h-5" />
         </button>
@@ -28,7 +48,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, con
             <Mail className="w-7 h-7" />
           </div>
           <div className="space-y-1">
-            <h3 className="text-2xl font-black text-slate-900 dark:text-white">
+            <h3 id="contact-modal-title" className="text-2xl font-black text-slate-900 dark:text-white">
               Get in Touch
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto leading-relaxed">
@@ -77,7 +97,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, con
           <a
             href={`https://maps.google.com/?q=${encodeURIComponent(contact.location)}`}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="flex items-center gap-3.5 p-3.5 bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 rounded-xl hover:border-blue-400 dark:hover:border-blue-600 transition-all group"
           >
             <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow">
@@ -96,7 +116,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, con
             <a
               href={contact.linkedinUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center gap-3.5 p-3.5 bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 rounded-xl hover:border-blue-400 dark:hover:border-blue-600 transition-all group"
             >
               <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow">
@@ -116,7 +136,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, con
             <a
               href={contact.instagramUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center gap-3.5 p-3.5 bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 rounded-xl hover:border-blue-400 dark:hover:border-blue-600 transition-all group"
             >
               <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow">

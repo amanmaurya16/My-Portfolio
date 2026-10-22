@@ -222,7 +222,7 @@ export const ResumeView: React.FC<ResumeViewProps> = ({
             <a
               href={blobUrl || resolveAssetUrl(settings.resumeUrl)}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-white transition font-medium"
             >
               <ExternalLink className="w-3.5 h-3.5" />
@@ -269,7 +269,7 @@ export const ResumeView: React.FC<ResumeViewProps> = ({
               <a
                 href={blobUrl || resolveAssetUrl(settings.resumeUrl)}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="text-blue-400 hover:underline flex items-center gap-1"
               >
                 <ExternalLink className="w-3 h-3" /> Open in New Tab
@@ -306,7 +306,7 @@ export const ResumeView: React.FC<ResumeViewProps> = ({
                 <span>{contact.email}</span>
               </a>
               {contact.linkedinUrl && (
-                <a href={contact.linkedinUrl} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-blue-600 hover:underline">
+                <a href={contact.linkedinUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-blue-600 hover:underline">
                   <Linkedin className="w-3.5 h-3.5 shrink-0" />
                   <span>LinkedIn Profile</span>
                 </a>

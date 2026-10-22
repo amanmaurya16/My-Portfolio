@@ -421,6 +421,19 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
               <Download className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Export</span>
             </button>
+
+            {!isStandalone && onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="px-3 py-1.5 bg-slate-800 hover:bg-rose-900/60 hover:text-rose-200 text-slate-300 rounded-lg text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
+                title="Exit Studio CMS"
+                aria-label="Exit Studio CMS"
+              >
+                <X className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Close</span>
+              </button>
+            )}
           </div>
         </header>
 

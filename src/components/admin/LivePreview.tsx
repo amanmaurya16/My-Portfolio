@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Monitor,
   Tablet,
@@ -32,6 +32,16 @@ export const LivePreview: React.FC<LivePreviewProps> = ({
   const [viewport, setViewport] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
   const [activeTab, setActiveTab] = useState<string>('home');
   const [previewNotification, setPreviewNotification] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onExitPreview();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onExitPreview]);
 
   const notify = (msg: string) => {
     setPreviewNotification(msg);

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Grid,
   Filter,
@@ -45,6 +45,17 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [previewItem, setPreviewItem] = useState<GalleryItem | null>(null);
+
+  useEffect(() => {
+    if (!previewItem) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setPreviewItem(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [previewItem]);
 
   const categories = useMemo(() => {
     const list = Array.from(new Set(data.galleryItems.map((item) => item.category)));
@@ -196,6 +207,9 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
         <div
           onClick={() => setPreviewItem(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="gallery-preview-title"
         >
           <div
             onClick={(e) => e.stopPropagation()}
@@ -226,7 +240,7 @@ export const GalleryView: React.FC<GalleryViewProps> = ({
                   ID: {previewItem.id}
                 </span>
               </div>
-              <h2 className="text-xl font-bold">{previewItem.title}</h2>
+              <h2 id="gallery-preview-title" className="text-xl font-bold">{previewItem.title}</h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
                 {previewItem.description}
               </p>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Calendar,
   User,
@@ -55,6 +55,18 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!selectedProject && !zoomImage) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedProject(null);
+        setZoomImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProject, zoomImage]);
 
   const categories = useMemo(() => {
     const set = new Set<string>();
