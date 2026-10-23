@@ -1,27 +1,62 @@
 # Dependencies
 node_modules/
+.pnp
+.pnp.js
 
 # Production build outputs
 dist/
+dist-ssr/
 build/
+out/
 
-# Testing
+# Vite & bundler cache
+.vite/
+.vite-temp/
+.parcel-cache/
+
+# Testing & Coverage
 coverage/
 playwright-report/
 test-results/
+blob-report/
 
-# Environment files and local secrets
+# Environment variables & local secrets
 .env
 .env.local
 .env.*.local
+*.env
 
-# Logs
+# Runtime & package manager logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Editor & OS files
-.DS_Store
-Thumbs.db
+# Editor & IDE configurations
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 *.sw?
+*.swo
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Temporary files
+tmp/
+temp/
