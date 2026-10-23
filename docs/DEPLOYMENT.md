@@ -26,7 +26,7 @@ The workflow defined in [`.github/workflows/deploy.yml`](../.github/workflows/de
 3. **Clean Install:** Runs `npm ci` for deterministic dependency resolution.
 4. **Code Validation:** Runs `npm run lint` (`tsc --noEmit`) to verify zero TypeScript errors.
 5. **Static Build:** Executes `npm run build` (`vite build`) outputting optimized assets to `./dist`.
-6. **Artifact Upload:** Packs the static artifact using `actions/upload-pages-artifact@v3`.
+6. **Artifact Upload:** Packs the static artifact using `actions/upload-pages-artifact@v4`.
 7. **Deployment:** Deploys artifact to GitHub Pages with `actions/deploy-pages@v4`.
 
 ---
