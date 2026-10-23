@@ -67,7 +67,7 @@ test.describe('Public Website End-to-End Tests', () => {
     // Navigate to Resume
     await page.getByRole('button', { name: 'Resume' }).first().click();
     await expect(page).toHaveURL(/#resume/);
-    await expect(page.getByText(/PROFESSIONAL SUMMARY/i).first()).toBeVisible();
+    await expect(page.getByText(/Engineering CV/i).first()).toBeVisible();
 
     // Return to Home
     await page.getByRole('button', { name: 'Home' }).first().click();
@@ -151,18 +151,31 @@ test.describe('Public Website End-to-End Tests', () => {
     await expect(modal).not.toBeVisible();
   });
 
-  test('Resume view ATS mode, zoom controls, and print trigger', async ({ page }) => {
+  test('Resume view PDF viewer, zoom controls, and print trigger', async ({ page }) => {
     await page.goto('/#resume');
 
-    // Check ATS view by default
-    await expect(page.getByText(/PROFESSIONAL SUMMARY/i)).toBeVisible();
-    await expect(page.getByText(/TECHNICAL SKILLS/i)).toBeVisible();
+    // Check PDF viewer document header and filename
+    await expect(page.getByText(/Engineering CV/i).first()).toBeVisible();
+    await expect(page.getByTitle(/Aman_Maurya_Resume.pdf/i)).toBeVisible();
 
     // Check Zoom controls
     const zoomInBtn = page.getByRole('button', { name: /Zoom In/i });
-    if (await zoomInBtn.isVisible()) {
-      await zoomInBtn.click();
-    }
+    await expect(zoomInBtn).toBeVisible();
+    await zoomInBtn.click();
+    await expect(page.getByText('110%')).toBeVisible();
+
+    const zoomOutBtn = page.getByRole('button', { name: /Zoom Out/i });
+    await expect(zoomOutBtn).toBeVisible();
+    await zoomOutBtn.click();
+    await expect(page.getByText('100%')).toBeVisible();
+
+    // Verify Fit to Page & Fit to Width buttons
+    await expect(page.getByRole('button', { name: /Fit to Page/i })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Fit to Width/i })).toBeVisible();
+
+    // Verify Open PDF and Download actions
+    await expect(page.getByRole('link', { name: /Open PDF/i })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Download/i })).toBeVisible();
 
     // Verify Print button is present and accessible
     const printBtn = page.getByRole('button', { name: /Print/i });

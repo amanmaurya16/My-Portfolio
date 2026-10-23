@@ -27,6 +27,7 @@ export const COMMITTED_REPOSITORY_ASSETS: readonly string[] = [
   'assets/cert-autocad.jpg',
   'assets/cert-solidworks.jpg',
   'assets/award-best-student.jpg',
+  'resume/Aman_Maurya_Resume.pdf',
 ];
 
 /**
